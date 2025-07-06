@@ -1,0 +1,47 @@
+$date
+	Sun Jul  6 08:56:02 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module instruction_memory_tb $end
+$var wire 8 ! tb_data [7:0] $end
+$var reg 8 " tb_addr [7:0] $end
+$scope module uut $end
+$var wire 8 # addr [7:0] $end
+$var reg 8 $ data [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b11000 $
+b0 #
+b0 "
+b11000 !
+$end
+#20000
+b10010000 !
+b10010000 $
+b1 "
+b1 #
+#30000
+b1010 !
+b1010 $
+b10 "
+b10 #
+#40000
+bx !
+bx $
+b11 "
+b11 #
+#50000
+b11111111 "
+b11111111 #
+#60000

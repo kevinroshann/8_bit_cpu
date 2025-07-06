@@ -1,0 +1,132 @@
+$date
+	Sun Jul  6 13:07:26 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module control_unit_tb $end
+$var wire 1 ! tb_use_imm $end
+$var wire 1 " tb_reg_write $end
+$var wire 2 # tb_reg_src [1:0] $end
+$var wire 2 $ tb_reg_dst [1:0] $end
+$var wire 1 % tb_mem_write $end
+$var wire 1 & tb_mem_read $end
+$var wire 1 ' tb_is_two_byte $end
+$var wire 1 ( tb_alu_op $end
+$var reg 8 ) tb_instr [7:0] $end
+$scope module uut $end
+$var wire 8 * instr [7:0] $end
+$var wire 2 + subcode [1:0] $end
+$var wire 2 , opcode [1:0] $end
+$var reg 1 ( alu_op $end
+$var reg 1 ' is_two_byte $end
+$var reg 1 & mem_read $end
+$var reg 1 % mem_write $end
+$var reg 2 - reg_dst [1:0] $end
+$var reg 2 . reg_src [1:0] $end
+$var reg 1 " reg_write $end
+$var reg 1 ! use_imm $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 .
+b0 -
+b0 ,
+b0 +
+b0 *
+b0 )
+0(
+0'
+0&
+0%
+b0 $
+b0 #
+1"
+0!
+$end
+#10000
+b10 #
+b10 .
+b1 $
+b1 -
+1"
+b1 +
+b11000 )
+b11000 *
+#20000
+1"
+b0 #
+b0 .
+b11 $
+b11 -
+b11 +
+b110001 )
+b110001 *
+#30000
+b11 #
+b11 .
+1"
+b0 $
+b0 -
+b0 +
+b1100 )
+b1100 *
+#40000
+1'
+1!
+1&
+b1 $
+b1 -
+1"
+b0 #
+b0 .
+b10 ,
+b10000100 )
+b10000100 *
+#50000
+1'
+1!
+0&
+1"
+b10 $
+b10 -
+b1 +
+b10011000 )
+b10011000 *
+#60000
+1'
+0!
+0"
+b0 $
+b0 -
+b10 +
+b10100000 )
+b10100000 *
+#70000
+1!
+1%
+b11 #
+b11 .
+1'
+b11 ,
+b0 +
+b11001100 )
+b11001100 *
+#80000
+0'
+0!
+0%
+b0 #
+b0 .
+b1 ,
+b1000000 )
+b1000000 *
+#90000

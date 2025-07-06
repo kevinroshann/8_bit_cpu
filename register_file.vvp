@@ -1,0 +1,217 @@
+#! /nix/store/ly53l0c2d0171az6mm17rd14prhs9f01-iverilog-12.0/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/nix/store/ly53l0c2d0171az6mm17rd14prhs9f01-iverilog-12.0/lib/ivl/system.vpi";
+:vpi_module "/nix/store/ly53l0c2d0171az6mm17rd14prhs9f01-iverilog-12.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/nix/store/ly53l0c2d0171az6mm17rd14prhs9f01-iverilog-12.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/nix/store/ly53l0c2d0171az6mm17rd14prhs9f01-iverilog-12.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/nix/store/ly53l0c2d0171az6mm17rd14prhs9f01-iverilog-12.0/lib/ivl/va_math.vpi";
+S_0x33aa6ee0 .scope module, "register_file_tb" "register_file_tb" 2 3;
+ .timescale -9 -12;
+v0x33acc380_0 .var "tb_clk", 0 0;
+v0x33acc440_0 .net "tb_read_data1", 7 0, L_0x33a9d090;  1 drivers
+v0x33acc4e0_0 .net "tb_read_data2", 7 0, L_0x33accf70;  1 drivers
+v0x33acc580_0 .var "tb_read_reg1", 1 0;
+v0x33acc650_0 .var "tb_read_reg2", 1 0;
+v0x33acc6f0_0 .var "tb_reg_write", 0 0;
+v0x33acc7c0_0 .var "tb_rst", 0 0;
+v0x33acc890_0 .var "tb_write_data", 7 0;
+v0x33acc960_0 .var "tb_write_reg", 1 0;
+S_0x33aa7070 .scope module, "uut" "register_file" 2 19, 3 1 0, S_0x33aa6ee0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst";
+    .port_info 2 /INPUT 2 "read_reg1";
+    .port_info 3 /INPUT 2 "read_reg2";
+    .port_info 4 /INPUT 2 "write_reg";
+    .port_info 5 /INPUT 8 "write_data";
+    .port_info 6 /INPUT 1 "reg_write";
+    .port_info 7 /OUTPUT 8 "read_data1";
+    .port_info 8 /OUTPUT 8 "read_data2";
+L_0x33a9d090 .functor BUFZ 8, L_0x33acca30, C4<00000000>, C4<00000000>, C4<00000000>;
+L_0x33accf70 .functor BUFZ 8, L_0x33accd10, C4<00000000>, C4<00000000>, C4<00000000>;
+v0x33a9bca0_0 .net *"_ivl_0", 7 0, L_0x33acca30;  1 drivers
+v0x33acb590_0 .net *"_ivl_10", 3 0, L_0x33accdb0;  1 drivers
+L_0x7fa566c77060 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x33acb670_0 .net *"_ivl_13", 1 0, L_0x7fa566c77060;  1 drivers
+v0x33acb730_0 .net *"_ivl_2", 3 0, L_0x33accb30;  1 drivers
+L_0x7fa566c77018 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x33acb810_0 .net *"_ivl_5", 1 0, L_0x7fa566c77018;  1 drivers
+v0x33acb940_0 .net *"_ivl_8", 7 0, L_0x33accd10;  1 drivers
+v0x33acba20_0 .net "clk", 0 0, v0x33acc380_0;  1 drivers
+v0x33acbae0_0 .net "read_data1", 7 0, L_0x33a9d090;  alias, 1 drivers
+v0x33acbbc0_0 .net "read_data2", 7 0, L_0x33accf70;  alias, 1 drivers
+v0x33acbca0_0 .net "read_reg1", 1 0, v0x33acc580_0;  1 drivers
+v0x33acbd80_0 .net "read_reg2", 1 0, v0x33acc650_0;  1 drivers
+v0x33acbe60_0 .net "reg_write", 0 0, v0x33acc6f0_0;  1 drivers
+v0x33acbf20 .array "registers", 3 0, 7 0;
+v0x33acbfe0_0 .net "rst", 0 0, v0x33acc7c0_0;  1 drivers
+v0x33acc0a0_0 .net "write_data", 7 0, v0x33acc890_0;  1 drivers
+v0x33acc180_0 .net "write_reg", 1 0, v0x33acc960_0;  1 drivers
+E_0x33a6b540 .event posedge, v0x33acbfe0_0, v0x33acba20_0;
+L_0x33acca30 .array/port v0x33acbf20, L_0x33accb30;
+L_0x33accb30 .concat [ 2 2 0 0], v0x33acc580_0, L_0x7fa566c77018;
+L_0x33accd10 .array/port v0x33acbf20, L_0x33accdb0;
+L_0x33accdb0 .concat [ 2 2 0 0], v0x33acc650_0, L_0x7fa566c77060;
+    .scope S_0x33aa7070;
+T_0 ;
+    %wait E_0x33a6b540;
+    %load/vec4 v0x33acbfe0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 8;
+    %ix/load 3, 0, 0;
+    %flag_set/imm 4, 0;
+    %ix/load 4, 0, 0; Constant delay
+    %assign/vec4/a/d v0x33acbf20, 0, 4;
+    %pushi/vec4 0, 0, 8;
+    %ix/load 3, 1, 0;
+    %flag_set/imm 4, 0;
+    %ix/load 4, 0, 0; Constant delay
+    %assign/vec4/a/d v0x33acbf20, 0, 4;
+    %pushi/vec4 0, 0, 8;
+    %ix/load 3, 2, 0;
+    %flag_set/imm 4, 0;
+    %ix/load 4, 0, 0; Constant delay
+    %assign/vec4/a/d v0x33acbf20, 0, 4;
+    %pushi/vec4 0, 0, 8;
+    %ix/load 3, 3, 0;
+    %flag_set/imm 4, 0;
+    %ix/load 4, 0, 0; Constant delay
+    %assign/vec4/a/d v0x33acbf20, 0, 4;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0x33acbe60_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.2, 8;
+    %load/vec4 v0x33acc0a0_0;
+    %load/vec4 v0x33acc180_0;
+    %pad/u 4;
+    %ix/vec4 3;
+    %ix/load 4, 0, 0; Constant delay
+    %assign/vec4/a/d v0x33acbf20, 0, 4;
+T_0.2 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x33aa6ee0;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x33acc380_0, 0, 1;
+T_1.0 ;
+    %delay 5000, 0;
+    %load/vec4 v0x33acc380_0;
+    %inv;
+    %store/vec4 v0x33acc380_0, 0, 1;
+    %jmp T_1.0;
+    %end;
+    .thread T_1;
+    .scope S_0x33aa6ee0;
+T_2 ;
+    %vpi_call 2 40 "$dumpfile", "register_file.vcd" {0 0 0};
+    %vpi_call 2 41 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x33aa6ee0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x33acc7c0_0, 0, 1;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x33acc580_0, 0, 2;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x33acc650_0, 0, 2;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x33acc960_0, 0, 2;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v0x33acc890_0, 0, 8;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x33acc6f0_0, 0, 1;
+    %vpi_call 2 51 "$display", "--- Starting Register File Testbench ---" {0 0 0};
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x33acc7c0_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 60 "$display", "\012--- Reading after Reset ---" {0 0 0};
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x33acc580_0, 0, 2;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v0x33acc650_0, 0, 2;
+    %delay 10000, 0;
+    %vpi_call 2 66 "$display", "\012--- Writing to R0 (0xAA) ---" {0 0 0};
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x33acc960_0, 0, 2;
+    %pushi/vec4 170, 0, 8;
+    %store/vec4 v0x33acc890_0, 0, 8;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x33acc6f0_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 73 "$display", "\012--- Writing to R1 (0xBB) ---" {0 0 0};
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v0x33acc960_0, 0, 2;
+    %pushi/vec4 187, 0, 8;
+    %store/vec4 v0x33acc890_0, 0, 8;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x33acc6f0_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 80 "$display", "\012--- Writing to R2 (0xCC) ---" {0 0 0};
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v0x33acc960_0, 0, 2;
+    %pushi/vec4 204, 0, 8;
+    %store/vec4 v0x33acc890_0, 0, 8;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x33acc6f0_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 87 "$display", "\012--- Reading R0 and R1 ---" {0 0 0};
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x33acc580_0, 0, 2;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v0x33acc650_0, 0, 2;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x33acc6f0_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call 2 94 "$display", "\012--- Reading R2 and R3 ---" {0 0 0};
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v0x33acc580_0, 0, 2;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v0x33acc650_0, 0, 2;
+    %delay 10000, 0;
+    %vpi_call 2 100 "$display", "\012--- Simultaneous Write to R0 (0xDD) and Read R0, R1 ---" {0 0 0};
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x33acc960_0, 0, 2;
+    %pushi/vec4 221, 0, 8;
+    %store/vec4 v0x33acc890_0, 0, 8;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x33acc6f0_0, 0, 1;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x33acc580_0, 0, 2;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v0x33acc650_0, 0, 2;
+    %delay 10000, 0;
+    %vpi_call 2 109 "$display", "\012--- Verifying R0 after simultaneous write ---" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x33acc6f0_0, 0, 1;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x33acc580_0, 0, 2;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v0x33acc650_0, 0, 2;
+    %delay 10000, 0;
+    %vpi_call 2 116 "$display", "\012--- No write, just reading R2 and R0 ---" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x33acc6f0_0, 0, 1;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v0x33acc580_0, 0, 2;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v0x33acc650_0, 0, 2;
+    %delay 10000, 0;
+    %vpi_call 2 122 "$display", "\012--- Simulation finished ---" {0 0 0};
+    %vpi_call 2 123 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+    .scope S_0x33aa6ee0;
+T_3 ;
+    %vpi_call 2 128 "$monitor", "Time=%0t | CLK=%b RST=%b | R_REG1=%b R_DATA1=0x%h | R_REG2=%b R_DATA2=0x%h | W_REG=%b W_DATA=0x%h W_EN=%b", $time, v0x33acc380_0, v0x33acc7c0_0, v0x33acc580_0, v0x33acc440_0, v0x33acc650_0, v0x33acc4e0_0, v0x33acc960_0, v0x33acc890_0, v0x33acc6f0_0 {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "register_file_tb.v";
+    "register_file.v";
