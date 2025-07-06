@@ -11,9 +11,11 @@ module data_memory(
 
     // Preload memory for LOAD instruction
 initial begin
-    memory[8'h0A] = 8'h05; // for MOVI R0, 0x05
-    memory[8'h0B] = 8'h03; // for MOVI R1, 0x03
+    memory[8'h0A] = 8'd20; // Value loaded into R0
+    memory[8'h0B] = 8'd5;  // Value loaded into R1
 end
+
+
 
 
 

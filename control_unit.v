@@ -2,7 +2,8 @@ module control_unit(
     input [7:0] instr,
     output reg [1:0] reg_dst,
     output reg [1:0] reg_src,
-    output reg alu_op,
+output reg [3:0] alu_op,
+
     output reg reg_write,
     output reg mem_write,
     output reg mem_read,
