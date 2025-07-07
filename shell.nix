@@ -4,6 +4,7 @@ pkgs.mkShell {
   # Define the packages you need
   buildInputs = [
     pkgs.iverilog
+    pkgs.gnumake
     pkgs.gtkwave
   ];
 
