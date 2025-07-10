@@ -1,3 +1,4 @@
+// data_memory.v
 module data_memory(
     input clk,
     input [7:0] address,
@@ -10,29 +11,28 @@ module data_memory(
     integer i;
 
     initial begin
-        // Clear all memory
+        // Clear all memory initially
         for (i = 0; i < 256; i = i + 1) memory[i] = 8'h00;
 
-        // Initial data for LOADs
-        memory[8'h10] = 8'hAA; // R0
-        memory[8'h11] = 8'hBB; // R1
-        memory[8'h12] = 8'hCC; // R2
-        memory[8'h13] = 8'hDD; // R3
+        // Initialize data for the new test program
+        // These are the values that the LOAD instructions will fetch
+        memory[8'h20] = 8'h0A; // Initial value for R0
+        memory[8'h21] = 8'h05; // Initial value for R1
+        memory[8'h22] = 8'h02; // Initial value for R2
+        memory[8'h23] = 8'h03; // Initial value for R3
 
-        // For later loads to set known register values
-        memory[8'h01] = 8'h01; // R0 final
-        memory[8'h03] = 8'h03; // R1 final
-        memory[8'h07] = 8'h07; // R2 final
-        memory[8'h0F] = 8'h0F; // R3 final
-
-        // 0x30, 0x31, 0x32 will be written and reloaded
+        // Initialize memory locations that will be used for STORE operations.
+        // They are set to 0x00 initially, but will be overwritten by STOREs.
+        memory[8'h40] = 8'h00;
+        memory[8'h41] = 8'h00;
+        memory[8'h42] = 8'h00;
     end
 
     always @(*) begin
         if (mem_read)
             read_data = memory[address];
         else
-            read_data = 8'h00;
+            read_data = 8'h00; // Default to 0 if not reading
     end
 
     always @(posedge clk) begin
